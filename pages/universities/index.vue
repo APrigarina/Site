@@ -30,7 +30,6 @@ export default {
 
 
 <style>
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -48,5 +47,4 @@ export default {
   word-spacing: 5px;
   padding-bottom: 15px;
 }
-
 </style>

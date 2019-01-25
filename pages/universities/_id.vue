@@ -11,11 +11,16 @@
         <a :href="'/specialities/' + speciality.id"> {{ speciality.Название }} </a>
       </li>
     </ul> 
-    <div>
-      <h4> Электронная почта</h4>
-      {{ mail }}
-      <h4> Телефон</h4>
-      {{ phone }}
+    <div class="contacts">
+      <h3> Контакты </h3>
+      <div style="float: left; width: 200px; height: 200px;">
+        <h4> Электронная почта</h4>
+        {{ mail }}
+      </div>
+      <div style="float: left; width: 200px; height: 200px;">
+        <h4> Телефон</h4>
+        {{ phone }}
+      </div>
     </div>
   </div>
 </template>
@@ -31,10 +36,16 @@ export default {
     return {
       name: response.data.Название,
       description: response.data.Описание,
-      mail: response.data["Электронная почта"],
+      mail: response.data.Email,
       phone: response.data.Телефон,
       specialities: response.data.специальность
     }
   }
 }
 </script>
+
+<style>
+.contacts {
+  margin: 20% 0% 15%;
+}
+</style>
