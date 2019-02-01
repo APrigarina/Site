@@ -1,16 +1,21 @@
 <template>
   <div>
-    <h1> {{ name }} </h1>
-    <h4> Описание: </h4>
-    {{ description }}
-    <h4> ВУЗы: </h4>
-    <ul 
-      v-for="university in universities"
-      :key="university">
-      <li >
-        <a :href="'/universities/' + university.id"> {{ university.Название }} </a>
-      </li>
-    </ul> 
+    <div v-if="pageFound">
+      <h1> {{ name }} </h1>
+      <h4> Описание: </h4>
+      {{ description }}
+      <h4> ВУЗы: </h4>
+      <ul 
+        v-for="university in universities"
+        :key="university">
+        <li >
+          <a :href="'/universities/' + university.id"> {{ university.Название }} </a>
+        </li>
+      </ul> 
+    </div>
+    <div v-else>
+      <h4> Страница не найдена</h4>
+    </div>
   </div>
 </template>
 
@@ -19,13 +24,18 @@ import axios from 'axios'
 
 export default {
   asyncData: async function(data) {
-    const response = await axios.get(
-      'http://185.158.153.91:1380/specialities/' + data.params.id
-    )
-    return {
-      name: response.data.Название,
-      description: response.data.Описание,
-      universities: response.data.вузы
+    try {
+      const response = await axios.get(
+        'http://185.158.153.91:1380/specialities/' + data.params.id
+      )
+      return {
+        pageFound: true,
+        name: response.data.Название,
+        description: response.data.Описание,
+        universities: response.data.вузы
+      }
+    } catch (err) {
+      pageFound: false
     }
   }
 }
