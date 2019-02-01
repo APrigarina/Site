@@ -1,7 +1,8 @@
 <template>
   <div>
     <div v-if="pageFound">
-      {{ page }}
+      <h4> {{ page.Название }} </h4>
+      <h4> {{ page.Текст }} </h4>
     </div>
     <div v-else>
       Страница не найдена
@@ -17,16 +18,10 @@ export default {
         slug: params.slug
       }
     })
-
-    const pageArr = response.data
-    if (response.data.lenght > 0) {
+    if (response.data.length > 0) {
       return {
         pageFound: true,
         page: response.data[0]
-      }
-    } else {
-      return {
-        pageFound: false
       }
     }
   }
