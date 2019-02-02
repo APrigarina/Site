@@ -1,5 +1,6 @@
 <template>
   <div>
+    <topmenu />
     <div v-if="pageFound">
       <h1> {{ name }} </h1>
       <h4> Описание: </h4>
@@ -21,8 +22,11 @@
 
 <script>
 import axios from 'axios'
-
+import Topmenu from '~/components/Topmenu.vue'
 export default {
+  components: {
+    Topmenu
+  },
   asyncData: async function(data) {
     try {
       const response = await axios.get(

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <topmenu />
     <h1 class="title">
       Специальности
     </h1>
@@ -17,8 +18,11 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Topmenu from '~/components/Topmenu.vue'
 export default {
+  components: {
+    Topmenu
+  },
   asyncData: async function({ $axios }) {
     const response = await $axios.get('http://185.158.153.91:1380/specialities')
     return {

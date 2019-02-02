@@ -1,5 +1,6 @@
 <template>
   <div>
+    <topmenu />
     <h1 class="title">
       ВУЗы
     </h1>
@@ -18,7 +19,6 @@
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
-import axios from 'axios'
 export default {
   components: {
     Topmenu
