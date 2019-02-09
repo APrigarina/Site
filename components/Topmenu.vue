@@ -24,8 +24,10 @@
       v-for="item in items"
       :key="item"
       class="nav">
-      <li> 
-        <a :href="'../' + item.slug"> {{ item.Название }} </a>
+      <li class="nav-item"> 
+        <a 
+          :href="'../' + item.slug"
+          class="nav-link"> {{ item.Название }} </a>
       </li>
     </ul>
   </nav>

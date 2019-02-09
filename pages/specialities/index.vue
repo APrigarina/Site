@@ -8,12 +8,14 @@
       Основные специальности
     </h2>
     <ul 
-      v-for="speciality in specialities"
+      v-for="speciality in top10"
       :key="speciality">
       <li> 
         <a :href="speciality.id"> {{ speciality.Название }} </a>
       </li>
     </ul>
+    <button @click="counter -= 3">Назад</button>
+    <button @click="counter += 3">Вперед</button>
   </div>
 </template>
 
@@ -23,10 +25,20 @@ export default {
   components: {
     Topmenu
   },
+  data: function() {
+    return {
+      counter: 0
+    }
+  },
   asyncData: async function({ $axios }) {
     const response = await $axios.get('http://185.158.153.91:1380/specialities')
     return {
       specialities: response.data
+    }
+  },
+  computed: {
+    top10() {
+      return this.specialities.slice(this.counter, this.counter + 3)
     }
   }
 }

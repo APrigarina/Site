@@ -1,5 +1,6 @@
 <template>
   <div>
+    <topmenu />
     <div v-if="pageFound">
       <h1> {{ name }} </h1>
       <h4> Описание: </h4>
