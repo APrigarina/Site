@@ -19,6 +19,11 @@
           class="nav-link" 
           href="/universities/"> Вузы </a>
       </li>
+      <li class="nav-item">
+        <a 
+          class="nav-link" 
+          href="/news/"> Новости </a>
+      </li>
     </ul>
     <ul
       v-for="item in items"
