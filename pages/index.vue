@@ -1,52 +1,83 @@
 <template>
-  <section class="container">
-    <div>
+  <div>
+    <topmenu />
+    <div class="container">
       <h1 class="title">
         Путевка в жизнь
       </h1>
-      <div class="links">
-        <a
-          href="/specialities/"
-          target="_blank"
-          class="button--green">Специальности</a>
-        <a
-          href="/universities/"
-          target="_blank"
-          class="button--grey">Вузы</a>
+      <p id="text"> Разнообразный и богатый опыт говорит нам, 
+      что высококачественный прототип будущего проекта способствует 
+      повышению качества благоприятных перспектив! 
+      Господа, современная методология разработки влечет за собой 
+      процесс внедрения и модернизации благоприятных перспектив. 
+      В целом, конечно, постоянное информационно-пропагандистское
+      обеспечение нашей деятельности предопределяет высокую 
+      востребованность экономической целесообразности принимаемых решений.
+      </p>
+      <div id="picture">
+        <img src="~/static/images/middle/сраная_пикча.png">
       </div>
     </div>
-  </section>
+    <footer>
+      <Downfooter />
+    </footer>
+  </div>
 </template>
 
+<script>
+import Topmenu from '~/components/Topmenu.vue'
+import Downfooter from '~/components/Downfooter.vue'
+export default {
+  components: {
+    Topmenu,
+    Downfooter
+  }
+}
+</script>
 
 <style>
 .container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: relative;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  position: absolute;
+  width: 476px;
+  height: 64px;
+  left: 117px;
+  top: 189px;
+
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 48px;
+  text-transform: uppercase;
+
+  color: #5d3dc6;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+#picture img {
+  position: absolute;
+  width: 600px;
+  height: 496px;
+  left: 51.02%;
+  top: 7.93%;
 }
 
-.links {
-  padding-top: 15px;
+#text {
+  position: absolute;
+  width: 582px;
+  height: 235px;
+  left: 117px;
+  top: 296px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 29px;
+  font-size: 15px;
+
+  color: #1d262d;
 }
 </style>

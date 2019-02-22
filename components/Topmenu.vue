@@ -1,55 +1,93 @@
 <template>
-  <nav class="navbar navbar-light bg-light">
-    <link 
-      rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
-      crossorigin="anonymous">
-    <a 
-      class="navbar-brand" 
-      href="/"> Путевка в жизнь </a>
-    <ul class="nav">
-      <li class="nav-item">
-        <a 
-          class="nav-link" 
-          href="/specialities/"> Специальности </a>
-      </li>
-      <li class="nav-item">
-        <a 
-          class="nav-link" 
-          href="/universities/"> Вузы </a>
-      </li>
-      <li class="nav-item">
-        <a 
-          class="nav-link" 
-          href="/news/"> Новости </a>
-      </li>
-    </ul>
-    <ul
-      v-for="item in items"
-      :key="item"
-      class="nav">
-      <li class="nav-item"> 
-        <a 
-          :href="'../' + item.slug"
-          class="nav-link"> {{ item.Название }} </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="total_container">
+    <div class="href_container">
+      <a
+        class="href_a"
+        href="../news/1">Новости</a> 
+      <a 
+        v-for="item in items"
+        :key="item"
+        :href="'../' + item.slug"
+        class="href_a">{{ item.Название }}</a>
+    </div>
+    <div class="img_container">
+      <a>
+        <img 
+          id="img_twitter"
+          src="~/static/images/header_footer/twitter.png">
+      </a>
+      <a>
+        <img 
+          id="img_facebook"
+          src="~/static/images/header_footer/facebook.png">
+      </a>
+      <a>
+        <img 
+          id="img_mail"
+          src="~/static/images/header_footer/mail.png">
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
+import constants from 'assets/constants'
 export default {
   data: function() {
     return {
       items: []
     }
   },
-
   mounted: async function() {
-    const response = await axios.get('http://185.158.153.91:1380/pages')
+    const response = await axios.get(constants.baseUrl + '/pages')
     this.items = response.data
   }
 }
 </script>
+
+<style>
+#img_twitter {
+  width: 24px;
+  height: 19.64px;
+  margin-right: 52px;
+}
+#img_facebook {
+  width: 24px;
+  height: 24px;
+  margin-right: 52px;
+}
+#img_mail {
+  width: 26px;
+  height: 17.23px;
+  margin-right: 52px;
+}
+.href_a {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 15px;
+  color: #2c373f;
+  margin-right: 52px;
+  text-decoration: none;
+}
+.total_container {
+  margin-top: 49px;
+  padding-right: 117px;
+  padding-left: 117px;
+  margin-bottom: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.img_container {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.href_container {
+  display: inline-flex;
+  justify-content: space-between;
+}
+</style>
