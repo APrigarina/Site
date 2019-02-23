@@ -18,6 +18,9 @@
           src="~/static/images/header_footer/mail.png">
       </a>
     </div>
+    <link 
+      href="https://fonts.googleapis.com/css?family=Montserrat" 
+      rel="stylesheet">
   </div>
 </template>
 
@@ -49,7 +52,7 @@ export default {
   margin-top: 85px;
 }
 #project_name {
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   line-height: normal;

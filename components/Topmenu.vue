@@ -27,6 +27,9 @@
           src="~/static/images/header_footer/mail.png">
       </a>
     </div>
+    <link 
+      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" 
+      rel="stylesheet">
   </div>
 </template>
 
@@ -63,7 +66,7 @@ export default {
   margin-right: 52px;
 }
 .href_a {
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   line-height: normal;

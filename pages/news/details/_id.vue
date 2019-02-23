@@ -6,15 +6,20 @@
     </h1>
     <a> {{ news.Название }} </a>
     <p> {{ news.Полно }} </p>
+    <footer>
+      <Downfooter />
+    </footer>
   </div>
 </template>
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
 let size = 2
+import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
-    Topmenu
+    Topmenu,
+    Downfooter
   },
   asyncData: async function({ $axios, params }) {
     const response = await $axios.get(

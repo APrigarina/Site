@@ -8,14 +8,19 @@
     <div v-else>
       Страница не найдена
     </div>
+    <footer>
+      <Downfooter />
+    </footer>
   </div>
 </template>
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
+import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
-    Topmenu
+    Topmenu,
+    Downfooter
   },
   asyncData: async function({ $axios, params }) {
     const response = await $axios.get('http://185.158.153.91:1380/pages', {

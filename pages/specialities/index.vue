@@ -16,14 +16,19 @@
     </ul>
     <button @click="counter -= 3">Назад</button>
     <button @click="counter += 3">Вперед</button>
+    <footer>
+      <Downfooter />
+    </footer>
   </div>
 </template>
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
+import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
-    Topmenu
+    Topmenu,
+    Downfooter
   },
   data: function() {
     return {

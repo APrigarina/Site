@@ -22,15 +22,20 @@
         <button> <a :href="'/news/' + number"> {{ number }} </a> </button>
       </div>
     </div>
+    <footer>
+      <Downfooter />
+    </footer>
   </div>
 </template>
 
 <script>
 import Topmenu from '~/components/Topmenu.vue'
 let size = 2
+import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
-    Topmenu
+    Topmenu,
+    Downfooter
   },
   asyncData: async function({ $axios, params }) {
     const page = params.page

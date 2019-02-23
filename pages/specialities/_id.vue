@@ -17,15 +17,20 @@
     <div v-else>
       <h4> Страница не найдена</h4>
     </div>
+    <footer>
+      <Downfooter />
+    </footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Topmenu from '~/components/Topmenu.vue'
+import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
-    Topmenu
+    Topmenu,
+    Downfooter
   },
   asyncData: async function(data) {
     try {
