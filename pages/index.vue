@@ -106,13 +106,12 @@ export default {
 .below_middle_container {
   display: inline-flex;
   margin-left: 117px;
-  justify-content: space-between;
 }
 li {
+  z-index: 5;
+  left: -37px;
   list-style-type: none;
-}
-.list {
-  float: left;
+  position: relative;
 }
 .specialities {
   display: block;
@@ -129,15 +128,14 @@ li {
   color: #41505c;
 }
 .specialities:focus {
-  z-index: 1;
-
   background-image: url('/images/below_middle/rectangle.png');
   background-size: cover;
   font-weight: bold;
   color: #ffffff;
 }
 .div_description {
-  z-index: 2;
+  position: relative;
+  left: -51.8px;
   background: #ffffff;
   box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
 }
