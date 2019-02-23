@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div>
     <topmenu />
-    <div class="middle_container">
+    <section class="middle_container">
       <div class="text_container">
         <h1 class="title">
           Путевка в жизнь
@@ -21,7 +21,24 @@
           id="picture"
           src="~/static/images/middle/сраная_пикча.png">
       </span>
-    </div>
+    </section>
+    <section class="below_middle_container"> 
+      <ul>
+        <li 
+          v-for="(item, index) in items" 
+          :key="item.Название">
+          <a
+            class="specialities"
+            href="#description"
+            @click="activeItem = index"> {{ item.Название }} </a>
+        </li>
+      </ul>
+      <div class="div_description">
+        <div class="description">
+          {{ items[activeItem].Описание }}
+        </div>
+      </div>
+    </section>
     <footer>
       <Downfooter />
     </footer>
@@ -34,10 +51,18 @@
 <script>
 import Topmenu from '~/components/Topmenu.vue'
 import Downfooter from '~/components/Downfooter.vue'
+import constants from '~/assets/constants'
 export default {
   components: {
     Topmenu,
     Downfooter
+  },
+  async asyncData({ $axios }) {
+    const response = await $axios.get(constants.baseUrl + '/specialities')
+    return {
+      activeItem: 0,
+      items: response.data
+    }
   }
 }
 </script>
@@ -76,6 +101,59 @@ export default {
   font-weight: normal;
   line-height: 29px;
   font-size: 15px;
+  color: #1d262d;
+}
+.below_middle_container {
+  display: inline-flex;
+  margin-left: 117px;
+  justify-content: space-between;
+}
+li {
+  list-style-type: none;
+}
+.list {
+  float: left;
+}
+.specialities {
+  display: block;
+  width: 366px;
+  height: 56px;
+  padding: 17px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 18px;
+  text-decoration: none;
+
+  color: #41505c;
+}
+.specialities:focus {
+  z-index: 1;
+
+  background-image: url('/images/below_middle/rectangle.png');
+  background-size: cover;
+  font-weight: bold;
+  color: #ffffff;
+}
+.div_description {
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
+}
+.description {
+  margin: 33px 64px 70px 73px;
+  width: 679px;
+  height: 235px;
+  left: 540px;
+  top: 743px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 29px;
+  font-size: 15px;
+
   color: #1d262d;
 }
 </style>
