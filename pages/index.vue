@@ -10,7 +10,7 @@
         что высококачественный прототип будущего проекта способствует 
         повышению качества благоприятных перспектив! 
         Господа, современная методология разработки влечет за собой 
-        процесс внедрения и модернизации благоприятных перспектив. 
+        процесс внедрения и модернизации благоприятных перспектив.
         В целом, конечно, постоянное информационно-пропагандистское
         обеспечение нашей деятельности предопределяет высокую 
         востребованность экономической целесообразности принимаемых решений.
@@ -19,7 +19,7 @@
       <span>
         <img 
           id="picture"
-          src="~/static/images/middle/сраная_пикча.png">
+          src="~/static/images/middle/picture.png">
       </span>
     </section>
     <section class="below_middle_container"> 
@@ -38,6 +38,18 @@
           {{ items[activeItem].Описание }}
         </div>
       </div>
+    </section>
+    <section>
+      <p id="column_text">
+        Разнообразный и богатый опыт говорит нам, 
+        что высококачественный прототип будущего проекта способствует 
+        повышению качества благоприятных перспектив! 
+        Господа, современная методология разработки влечет за собой 
+        процесс внедрения и модернизации благоприятных перспектив.
+        В целом, конечно, постоянное информационно-пропагандистское
+        обеспечение нашей деятельности предопределяет высокую 
+        востребованность экономической целесообразности принимаемых решений.
+      </p>
     </section>
     <footer>
       <Downfooter />
@@ -69,8 +81,7 @@ export default {
 
 <style>
 .middle_container {
-  display: inline-flex;
-  justify-content: space-between;
+  display: flex;
   align-items: center;
 }
 .text_container {
@@ -135,22 +146,34 @@ li {
 }
 .div_description {
   position: relative;
-  left: -51.8px;
+  left: -52.5px;
+  width: 816px;
   background: #ffffff;
   box-shadow: 0px 2px 11px rgba(85, 102, 129, 0.15);
 }
 .description {
   margin: 33px 64px 70px 73px;
-  width: 679px;
-  height: 235px;
-  left: 540px;
-  top: 743px;
 
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   line-height: 29px;
   font-size: 15px;
+
+  color: #1d262d;
+}
+#column_text {
+  display: block;
+  margin: 93px 117px 0px 117px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 29px;
+  font-size: 15px;
+
+  column-count: 2;
+  column-gap: 35px;
 
   color: #1d262d;
 }
