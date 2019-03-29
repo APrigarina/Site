@@ -13,6 +13,20 @@
           <a :href="'/universities/' + university.id"> {{ university.Название }} </a>
         </li>
       </ul> 
+      <h4> Профессии </h4>
+      <ul>
+        <li 
+          v-for="(profession, index) in professions"
+          :key="profession">
+          <a 
+            href="#description"
+            @click="activeItem = index"> {{ profession.Название }} </a>
+        </li>
+      </ul>
+      <div>
+        <div v-html="professions[activeItem].Видео" />
+        <div v-html="$md.render(professions[activeItem].Описание)"/>
+      </div>
     </div>
     <div v-else>
       <h4> Страница не найдена</h4>
@@ -41,7 +55,9 @@ export default {
         pageFound: true,
         name: response.data.Название,
         description: response.data.Описание,
-        universities: response.data.вузы
+        universities: response.data.вузы,
+        professions: response.data.профессии,
+        activeItem: 0
       }
     } catch (err) {
       pageFound: false

@@ -37,6 +37,7 @@
         <div class="description">
           {{ items[activeItem].Описание }}
         </div>
+        <a :href="'/specialities/' + items[activeItem].id"> Подробнее </a>
       </div>
     </section>
     <section>
