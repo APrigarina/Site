@@ -62,6 +62,18 @@ export default {
     } catch (err) {
       pageFound: false
     }
+  },
+  head() {
+    return {
+      title: 'Специальность: ' + this.name + ' - Путевка в жизнь',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    }
   }
 }
 </script>

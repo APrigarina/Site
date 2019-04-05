@@ -33,6 +33,18 @@ export default {
     return {
       universities: response.data
     }
+  },
+  head() {
+    return {
+      title: 'Университеты - Путевка в жизнь',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Основные университеты'
+        }
+      ]
+    }
   }
 }
 </script>

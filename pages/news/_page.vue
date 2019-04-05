@@ -50,6 +50,18 @@ export default {
       allNews: response.data,
       buttonAmount
     }
+  },
+  head() {
+    return {
+      title: 'Новости - Путевка в жизнь',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Новости проекта'
+        }
+      ]
+    }
   }
 }
 </script>

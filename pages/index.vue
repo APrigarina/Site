@@ -76,6 +76,18 @@ export default {
       activeItem: 0,
       items: response.data
     }
+  },
+  head() {
+    return {
+      title: "Сайт профориентации 'Путевка в жизнь'",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Сайт профориентации для абитуриентов Нижегородской области'
+        }
+      ]
+    }
   }
 }
 </script>

@@ -45,6 +45,18 @@ export default {
     top10() {
       return this.specialities.slice(this.counter, this.counter + 3)
     }
+  },
+  head() {
+    return {
+      title: 'Специальности - Путевка в жизнь',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Основные специальности'
+        }
+      ]
+    }
   }
 }
 </script>

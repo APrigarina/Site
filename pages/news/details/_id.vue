@@ -28,6 +28,18 @@ export default {
     return {
       news: response.data[0]
     }
+  },
+  head() {
+    return {
+      title: this.news.Название,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.news.Кратко
+        }
+      ]
+    }
   }
 }
 </script>
