@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     <topmenu />
     <section class="middle_container">
       <div class="text_container">
@@ -22,22 +22,33 @@
           src="~/static/images/middle/picture.png">
       </span>
     </section>
-    <section class="below_middle_container"> 
+    <div id="spec_group">
+      <ul class="spec_group_text">
+        <li 
+          v-for="(item, index) in directions" 
+          :key="item.Название">
+          <a
+            @click="activeDir = index"> {{ item.Название }} </a>
+        </li>
+      </ul>
+    </div> 
+    <section class="below_middle_container">
       <ul>
         <li 
-          v-for="(item, index) in items" 
+          v-for="(item, index) in specialities"
+          id="list_spec"
           :key="item.Название">
           <a
             class="specialities"
             href="#description"
-            @click="activeItem = index"> {{ item.Название }} </a>
+            @click="activeSpec = index"> {{ item.Название }} </a>
         </li>
       </ul>
       <div class="div_description">
         <div class="description">
-          {{ items[activeItem].Описание }}
+          {{ specialities[activeSpec].Описание }}
         </div>
-        <a :href="'/specialities/' + items[activeItem].id"> Подробнее </a>
+        <a :href="'/specialities/' + specialities[activeSpec].id"> Подробнее </a>
       </div>
     </section>
     <section>
@@ -71,10 +82,17 @@ export default {
     Downfooter
   },
   async asyncData({ $axios }) {
+    const responseDir = await $axios.get(constants.baseUrl + '/directions')
+    return {
+      activeDir: 0, 
+      directions: responseDir.data
+    }
+  },
+  async asyncData({ $axios }) {
     const response = await $axios.get(constants.baseUrl + '/specialities')
     return {
-      activeItem: 0,
-      items: response.data
+      activeSpec: 0,
+      specialities: response.data
     }
   },
   head() {
@@ -93,12 +111,14 @@ export default {
 </script>
 
 <style>
+#main {
+  margin-left: 117px;
+}
 .middle_container {
   display: flex;
   align-items: center;
 }
 .text_container {
-  margin-left: 117px;
   margin-right: 42px;
 }
 .title {
@@ -129,9 +149,26 @@ export default {
 }
 .below_middle_container {
   display: inline-flex;
-  margin-left: 117px;
 }
-li {
+#spec_group {
+  margin-bottom: 40px;
+  display: flex;
+}
+.spec_group_text {
+  font-family: 'Roboto Slab', serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fe5e5d;
+  padding-bottom: 6px;
+  padding-right: 19px;
+  padding-left: 19px;
+  border-bottom: 4px solid #fe5e5d;
+}
+#list_spec {
   z-index: 5;
   left: -37px;
   list-style-type: none;
@@ -177,7 +214,7 @@ li {
 }
 #column_text {
   display: block;
-  margin: 93px 117px 0px 117px;
+  margin: 93px 117px 0px 0px;
 
   font-family: Montserrat;
   font-style: normal;

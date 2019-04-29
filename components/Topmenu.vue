@@ -3,6 +3,12 @@
     <div class="href_container">
       <a
         class="href_a"
+        href="../universities/">ВУЗы</a>
+      <a
+        class="href_a"
+        href="../specialities/">Специальности</a>  
+      <a
+        class="href_a"
         href="../news/1">Новости</a> 
       <a 
         v-for="item in items"
@@ -78,7 +84,6 @@ export default {
 .total_container {
   margin-top: 49px;
   padding-right: 117px;
-  padding-left: 117px;
   margin-bottom: 47px;
   display: flex;
   justify-content: space-between;

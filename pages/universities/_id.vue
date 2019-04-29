@@ -1,10 +1,14 @@
 <template>
   <div>
     <topmenu />
+    <top />
     <div v-if="pageFound">
-      <h1> {{ name }} </h1>
-      <h4> Описание: </h4>
-      {{ description }}
+      <div id="uni_container">
+        <h1 id="uni_name"> {{ name }} </h1>
+        <p id="uni_description">
+          {{ description }}
+        </p>
+      </div>
       <h4> Специальности: </h4>
       <ul 
         v-for="speciality in specialities"
@@ -31,16 +35,21 @@
     <footer>
       <Downfooter />
     </footer>
+    <link 
+      href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" 
+      rel="stylesheet">
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Topmenu from '~/components/Topmenu.vue'
+import Top from '~/components/Top.vue'
 import Downfooter from '~/components/Downfooter.vue'
 export default {
   components: {
     Topmenu,
+    Top,
     Downfooter
   },
   asyncData: async function(data) {
@@ -76,6 +85,30 @@ export default {
 </script>
 
 <style>
+#uni_container {
+  margin-top: 56px;
+  margin-right: 157px;
+  margin-left: 77px;
+}
+#uni_name {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: normal;
+  text-transform: uppercase;
+
+  color: #1d262d;
+}
+#uni_description {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 29px;
+
+  color: #1d262d;
+}
 .contacts {
   margin: 20% 0% 15%;
 }
